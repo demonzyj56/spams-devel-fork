@@ -120,7 +120,7 @@ void arch(const Matrix<T>& X, const Matrix<T>& Z0, Matrix<T>& Z,  SpMatrix<T>& A
       matRSS.copy(X);
       Z.mult(AlphaT, matRSS, false, false, T(-1.0), T(1.0));
       RSS = matRSS.normFsq();
-      cout << "RSS FISTA = " << RSS << endl;
+      cout << (t+1) << "\tRSS FISTA = " << RSS << endl;
       flush(cout);
    }  
 
@@ -205,7 +205,7 @@ void arch(const Matrix<T>& X, const Matrix<T>& Z0, Matrix<T>& Z,  SpMatrix<T>& A
       Z.mult(AlphaT, matRSS, false, false, T(-1.0), T(1.0));
 #endif
       RSS = matRSS.normFsq();
-      cout << "RSS AS = " << RSS << endl;
+      cout << (t+1) << "\tRSS AS = " << RSS << endl;
       flush(cout);
    }
    AlphaT.toSparse(A);
