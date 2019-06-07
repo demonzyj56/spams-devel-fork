@@ -3154,10 +3154,10 @@ void GraphPath<T,Int>::init_graph(const GraphPathStruct<T>& graph) {
    int* num_arcs=new int[n2];
    for (int i = 0; i<_n; ++i) {
       // s,t, j-j' j-j' dummy connexions
-      num_arcs[i]= isinf(graph.start_weights[i]) ? 2 :  3;
+      num_arcs[i]= std::isinf(graph.start_weights[i]) ? 2 :  3;
    }
    for (int i = 0; i<_n; ++i) {
-      num_arcs[i+_n]= isinf(graph.stop_weights[i]) ? 2 :  3;
+      num_arcs[i+_n]= std::isinf(graph.stop_weights[i]) ? 2 :  3;
    }
    num_arcs[n2-2]=_n+1; // s connexions
    num_arcs[n2-1]=_n+1; // t connexions
@@ -3188,7 +3188,7 @@ void GraphPath<T,Int>::init_graph(const GraphPathStruct<T>& graph) {
    }
    // s-j connexions
    for (int i = 0; i<_n; ++i) {
-      if (!isinf(graph.start_weights[i])) {
+      if (!std::isinf(graph.start_weights[i])) {
          const Int cost=static_cast<Int>(ceil(graph.start_weights[i]*_sf));
          const double double_cost=static_cast<double>((graph.start_weights[i]));
          _min_cost_flow->add_edge(2*_n,i,cost,double_cost,_infinite_capacity);
@@ -3196,7 +3196,7 @@ void GraphPath<T,Int>::init_graph(const GraphPathStruct<T>& graph) {
    }
    // j'-t connexions
    for (int i = 0; i<_n; ++i) {
-      if (!isinf(graph.stop_weights[i])) {
+      if (!std::isinf(graph.stop_weights[i])) {
          const Int cost=static_cast<Int>(ceil(graph.stop_weights[i]*_sf));
          const double double_cost=static_cast<double>((graph.stop_weights[i]));
          _min_cost_flow->add_edge(i+_n,2*_n+1,cost,double_cost,_infinite_capacity);

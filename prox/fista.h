@@ -302,7 +302,7 @@ namespace FISTA {
                _x.copy(x); 
                _missingvalues.clear();
                for (int i = 0; i<_x.n(); ++i) {
-                  if (isnan(_x[i])) {
+                  if (std::isnan(_x[i])) {
                      _x[i]=0;
                      _missingvalues.push_back(i);
                   }

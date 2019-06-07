@@ -1679,7 +1679,7 @@ template <typename T> inline void Matrix<T>::eigLargestSymApprox(
          up.copy(u);
       }
       lambda+=theta*norm;
-      if (isnan(lambda)) {
+      if (std::isnan(lambda)) {
          std::cerr << "eigLargestSymApprox failed" << std::endl;
          exit(1);
       }
@@ -5656,7 +5656,7 @@ template <typename T> void AbstractMatrixB<T>::ridgeCG(const Vector<T>& b, const
    copyb.copy(b);
    List<int> missingvalues;
    for (int i = 0; i<b.n(); ++i) {
-      if (isnan(b[i])) {
+      if (std::isnan(b[i])) {
          copyb[i]=0;
          missingvalues.push_back(i);
       }
@@ -5704,7 +5704,7 @@ template <typename T> void AbstractMatrixB<T>::ridgeCG(const Vector<T>& b,
    copyb.copy(b);
    List<int> missingvalues;
    for (int i = 0; i<b.n(); ++i) {
-      if (isnan(b[i])) {
+      if (std::isnan(b[i])) {
          copyb[i]=0;
          missingvalues.push_back(i);
       }
