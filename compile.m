@@ -14,7 +14,7 @@ get_architecture;
 %    - 'clang'
 %    - 'vs'  (visual studio compiler) for windows computers (10.0 or more is recommended)
 %                for some unknown reason, the performance obtained with vs is poor compared to icc/gcc
-compiler='gcc';
+compiler='mex';
 
  %%%%%%%%%%%% BLAS/LAPACK CONFIGURATION %%%%%%%%%%%%%%
 % set up the blas/lapack library you want to use. Possible choices are
